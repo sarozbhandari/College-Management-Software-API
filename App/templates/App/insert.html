@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+</head>
+<body>
+	<form method = 'POST' action = '{% url "Session" %}'>
+		{% csrf_token %}
+		<input type="text" name="sess">
+		<input type="submit" name="Submit">
+		
+	</form>
+
+	{% for i in course_code %}
+		ID {{i}}
+	{% endfor %}
+<br>
+	{% for i in course_name %}
+		Name {{i}}
+	{% endfor %}
+<br>
+	{% for i in credit %}
+		Credit {{i}}
+	{% endfor %}
+
+</body>
+</html>

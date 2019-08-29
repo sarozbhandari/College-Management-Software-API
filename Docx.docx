@@ -1,0 +1,108 @@
+If you only want to capture the current date the proper way to handle this is to use the auto_now_add parameter:
+date = models.DateField(_("Date"), auto_now_add=True)
+
+
+To get Date only:
+import datetime (Always import the datetime module, not the class, so you can tell which is which)
+date = models.DateField(_("Date"), default=datetime.date.today)
+https://stackoverflow.com/questions/2029295/django-datefield-default-options
+
+
+
+Django's ForeignKey refers to the primary key of the related model
+
+This is the default behavior, but models.ForeignKey takes an optional to_field parameter that lets you specify a different field for the foreign key to refer to.
+
+If you reference a different field, that field must have unique=True
+
+
+
+
+
+
+    # else:
+    #     student = StudentManagement.objects.get(university_id = 10017)
+
+    #     sess = SessionManagement.objects.all()
+    #     course_code = []
+    #     course_credit = []
+    #     session_year = []
+    #     for i in sess:
+    #         course_code.append(i.course_code)
+    #         course_credit.append(i.course_credit)
+    #         session_year.append(i.session_year)
+
+    #     course_dict = {'course_code': course_code, 'course_credit': course_credit, 'session_year': session_year}
+
+        
+
+
+
+
+
+
+
+# @api_view(['GET','POST'])
+# def CourseRegister(request):
+#     if request.method == "GET":
+#         course = SessionCourseManagement.objects.filter(session_name = session_name)
+#         course_code = []
+#         course_name = []
+#         course_credit = []
+
+#         for i in course:
+#             course_code.append(i.course_code)
+#             course_credit.append(i.course_credit)
+#             course_name.append(i.course_name)
+#         course_dict = {
+#             'course_code': course_code,
+#             'course_name': course_name,
+#             'course_credit': course_credit,
+#         }
+
+
+    # if request.method == "POST":
+    #     course_code = request.data('coursecode')
+    #     course_credit = request.data('credit')
+    #     session_year = request.data('sessionyear')
+    #     checkbox = request.data('checkbox')
+    #     total_credit = 0
+
+    #     for i in checkbox:
+    #         course = CourseManagement.objects.get(course_code = i)
+    #         # print(course.course_code)
+    #         if course.prerequisite:
+    #             grade = GradeManagement.objects.get(course_code=course.course_code)
+    #             # for i in grade:
+    #             print(grade.status)
+    #             if grade.status == 'Pass':
+    #                 total_credit = total_credit + course.credit
+
+
+    #             session_credit = SessionManagement.objects.get(course_code = course.course_code)
+    #             if total_credit <= session_credit.max_credit:
+    #                 enroll = CourseEnrollment.objects.create(university_id_id = 10017, course_code_id = course.course_code)
+
+
+
+    #         else: 
+    #             print("No prerequisite Found")
+
+
+
+    # else:
+    #     student = StudentManagement.objects.get(university_id = 10017)
+
+    #     sess = SessionManagement.objects.all()
+    #     course_code = []
+    #     course_credit = []
+    #     session_year = []
+    #     for i in sess:
+    #         course_code.append(i.course_code)
+    #         course_credit.append(i.course_credit)
+    #         session_year.append(i.session_year)
+
+    #     course_dict = {'course_code': course_code, 'course_credit': course_credit, 'session_year': session_year}
+
+        
+

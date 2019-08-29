@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register Course</title>
+</head>
+<body>
+	<form method="POST" action = '{% url "courseregister" %}'>
+		{% csrf_token %}
+		<table>
+			<tr>
+				<th>Course Code</th>
+				<th>Session Year</th>
+				<th>Course Credit</th>
+
+			</tr>
+			<tr>
+				<td>
+				{% for i in course_code %}
+				<input type="checkbox" name="checkbox" value = "{{i.course_code}}">
+				<input type="hidden" name="cousecode" value="{{i.course_code}}">{{i.course_code}}<br>
+				{% endfor %}
+				</td>
+
+				<td>
+				{% for i in course_credit %}
+				<input type="hidden" name="sessionyear" value = "{{i}}">{{i}}<br>
+				{% endfor %}
+				</td>
+
+				<td>
+				{% for i in session_year %}
+				<input type="hidden" name="credit" value = "{{i}}">{{i}}<br>
+				{% endfor %}
+				</td>
+
+			</tr>
+		</table>
+		<input type="submit" name="" value = "Submit">
+	</form>
+</body>
+</html>
